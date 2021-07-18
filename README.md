@@ -3,9 +3,9 @@ A multilingual sentiment predictor which classifies English, Urdu or Roman Urdu 
 ![image](https://user-images.githubusercontent.com/63509198/126065117-621e657b-8111-4666-8bcd-58ba56a5e805.png)
 
 You can input a text and choose language of the text and the API will predict sentiment and show results.
-_Prediction of a positive sentence:_
+### _Prediction of a positive sentence:_
 ![image](https://user-images.githubusercontent.com/63509198/126065104-39950d7e-4839-49af-a1e7-3a37647a81b9.png)
-_Prediction of a negative sentence:_
+### _Prediction of a negative sentence:_
 ![image](https://user-images.githubusercontent.com/63509198/126065111-ef98534b-9c24-4c42-adce-75cd9eb0418a.png)
 
 ## _Opinion Mining on Government_
