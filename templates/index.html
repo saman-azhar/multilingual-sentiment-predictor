@@ -1,0 +1,78 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Predictor</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+</head>
+
+<body>
+    <section class="home">
+        <nav>
+            <a href="{{url_for('home')}}"><img src="/static/styles/images/logo.png"></a>
+            <h4>SENTIMENT PREDICTOR</h2>
+            <div class="nav-links">
+              <ul>
+                <li><a href="{{url_for('home')}}">HOME</a></li>
+                <li><a href="{{url_for('sentimentpredictor')}}">SENTIMENT PREDICTOR</a></li>
+                <li><a href="{{url_for('sentimentanalysis')}}">SENTIMENT ANALYSIS ON GOVERNMENT</a></li>
+                <li><a href="#ourteam">OUR TEAM</a></li>
+              </ul>
+            </div>
+        </nav>   
+
+<div class="text-box">
+  <h1>Sentiment Predictor</h1>
+  <p>An API that predict sentiments of textual data in English, Urdu or Roman Urdu</p>
+  <a href="{{url_for('sentimentpredictor')}}" class="hero-btn">Click Here To Predict Sentiment</a>
+</div>       
+</section>
+
+<section class="access">
+<h1>Access the source code or PyPI package</h1>
+<p>A multilingual sentiment predictor which classifies English, Urdu or Roman Urdu text as Negative or Positive. <br>It uses sentiment analysis algorithms of machine learning to classify negative and positive texts. We used 5 <br>different algorithms and then calculated the sum of predictions to vote if a text is most likely to be negative<br> or positive in sentiment.</p>
+<div class="row">
+<div class="access-col">
+  <a href="https://github.com/saman-azhar/multilingual-sentiment-classifier" style="color: black;">
+  <img src="/static/styles/images/githublogo.png">
+  <div class="layer">
+    <h6>The source code for python package is publically available on GitHub.</h6>          
+  </div>
+</a>
+</div>
+
+<div class="access-col">
+  <a href="https://pypi.org/project/multilingual-sentiment-classifier/" style="color: black;">
+  <img src="/static/styles/images/pypilogo.png">
+  <div class="layer">
+    <h6>The pip installable python package is available on PyPI.</h6>
+  </div>
+</a>
+</div>
+</div>
+</section>
+
+<section class="footer">
+  <a id="ourteam">
+  <h4>OUR TEAM</h4> 
+  <div class="row">
+    <div class="footer-col">
+      <p style="color:black;"><i class="fa fa-user"></i> Saman Azhar</p>
+      <p style="color:black"><i class="fa fa-user"></i> Hamnna Ayemen</p>
+      <p style="color:black"><i class="fa fa-user"></i> Areesha Ramzan</p>
+    </div>
+
+      <div class="footer-col">
+        <p style="color:black"><i class="fa fa-envelope"></i> saman.azhar36@gmail.com</p>
+        <p style="color:black"><i class="fa fa-envelope"></i> hamnna035@gmail.com</p>
+        <p style="color:black"><i class="fa fa-envelope"></i> areesharamzan02@gmail.com</p>
+      </div>
+  </div>
+</a>
+</section>
+</body>
+</html>

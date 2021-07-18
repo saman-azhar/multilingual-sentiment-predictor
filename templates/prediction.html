@@ -1,0 +1,165 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Predictor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    
+    <style>
+      /*----footer----*/
+      .footer a:hover {
+        text-decoration: none;
+        }
+
+      .footer {
+          background: rgb(192, 192, 192);
+          width: 100%;
+          padding-bottom: 50px; 
+      }
+
+      .footer h4 {
+          padding-top: 20px;
+          font-size: 15px;
+          font-weight: 600;
+          text-align: center;
+          color: black;
+      } 
+      .results h2 {
+        text-align: center;
+      }
+      .heading {
+        font-weight: bold;
+        font-size: 18px;
+      }
+    </style>
+
+</head>
+
+<body>
+    <section class="sentimentpredictor">
+        <nav>
+           <a href="{{url_for('home')}}"><img src="/static/styles/images/logo.png"></a>
+            <h4>SENTIMENT PREDICTOR</h2>
+            <div class="nav-links">
+              <ul>
+                <li><a href="{{url_for('home')}}">HOME</a></li>
+                <li><a href="{{url_for('sentimentpredictor')}}">SENTIMENT PREDICTOR</a></li>
+                <li><a href="{{url_for('sentimentanalysis')}}">SENTIMENT ANALYSIS ON GOVERNMENT</a></li>
+                <li><a href="#ourteam">OUR TEAM</a></li>
+              </ul>
+            </div>
+        </nav>   
+          
+          <h1>Sentiment Predictor</h1>
+       
+    </section>
+
+    <section class="predictor">     
+            <form method="POST" name="form1" id="form1"> 
+              <div class="row">
+              <div class="form-col">
+                <input type="text" name="textbox" class="textbox" placeholder="Enter Text" value="{{ text }}" required=True>
+              </div>
+              <div class="form-col">
+                <select id="language" name="language" class="select" value="{{ language }}">
+                  <option value="en">English</option>
+                  <option value="in">Roman Urdu</option>
+                  <option value="ur">Urdu</option>
+                </select>
+              </div>
+            </form> 
+              <div class="form-col">
+                <button type="submit" name="submit" class="submit-button" id="button">Predict Sentiment</button>  
+              </div>
+            </div> 
+            
+               {% if positive %}
+              <section class="results" id="results">
+                <div class="row">
+                  <div class="results-col">
+                    <label class="heading">Input Text</label>
+                    <output class="output" name="input_text" style="color: green; font-size: 16px;font-weight: 500;">{{input_text}}</output>
+                    <br>
+                    <label class="heading">Language</label>
+                    <output class="output" name="input_lang" style="color: green; font-size: 16px;font-weight: 500;">{{input_lang}}</output>
+                    <br>                                
+                </div>
+              
+              <div class="results-col">
+                <label class="heading">Sentiment</label>
+                <output  class="output" form="form1" name="sentiment" style="color: green; font-size: 16px;font-weight: 500;" id="id1">{{sentiment}}</output> 
+                <br>
+                <label class="heading">Confidence Level</label>                
+                
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="{{ positive }}"
+                  aria-valuemin="0" aria-valuemax="100" style="width: {{ positive }}%; background-color:green; font-size: 16px; font-weight:500;">
+                    {{ positive }}%
+                  </div>
+                </div> 
+
+              </div>
+            </div>
+              </section>  
+
+              {% else %}
+
+              <section class="results" id="results">
+    
+                <div class="row">
+                  <div class="results-col">
+                    <label class="heading">Input Text</label>
+                    <output class="output" name="input_text" style="color: red; font-size: 16px;font-weight: 500;">{{input_text}}</output>
+                    <br>
+                    <label class="heading">Language</label>
+                    <output class="output" name="input_lang" style="color: red; font-size: 16px;font-weight: 500;">{{input_lang}}</output>
+                    <br>                                
+                </div>
+              
+              <div class="results-col">
+                <label class="heading">Sentiment</label>
+                <output  class="output" form="form1" name="sentiment" style="color: red; font-size: 16px;font-weight: 500;" id="id1">{{sentiment}}</output> 
+                <br>
+                <label class="heading">Confidence Level</label>                
+                
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="{{ negative }}"
+                  aria-valuemin="0" aria-valuemax="100" style="width: {{ negative }}%; background-color:red; font-size: 16px;font-weight: 500;"  id="progress-bar-neg">
+                   {{ negative }}%
+                  </div>
+                </div> 
+
+              </div>
+            </div>
+              </section>
+              {% endif %}            
+              
+          </section>
+
+
+    <section class="footer">
+      <a id="ourteam">
+      <h4>OUR TEAM</h4> 
+      <div class="row">
+        <div class="footer-col">
+          <p style="color:black;"><i class="fa fa-user"></i> Saman Azhar</p>
+          <p style="color:black"><i class="fa fa-user"></i> Hamnna Ayemen</p>
+          <p style="color:black"><i class="fa fa-user"></i> Areesha Ramzan</p>
+        </div>
+
+          <div class="footer-col">
+            <p style="color:black"><i class="fa fa-envelope"></i> saman.azhar36@gmail.com</p>
+            <p style="color:black"><i class="fa fa-envelope"></i> hamnna035@gmail.com</p>
+            <p style="color:black"><i class="fa fa-envelope"></i> areesharamzan02@gmail.com</p>
+          </div>
+      </div>
+    </a>
+    </section>
+</body>
+</html>

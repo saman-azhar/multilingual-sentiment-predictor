@@ -1,0 +1,243 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+
+    <style>
+  .content {
+    width: 120%;
+    padding-bottom: 60px; 
+}
+
+.left-content {
+    flex-basis: 65%;
+}
+
+.left-content img {
+    width: 80%;
+}
+
+.left-content h2 {
+    color: #222;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.left-content p {
+    color: #999;
+    padding: 0;
+}
+
+.right-content {
+    flex-basis: 32%;
+    margin-left: 60px;
+}
+
+.right-content h3 {
+    background-color: rgb(28, 63, 102);
+    color: white;
+    font-size: 15px;
+    padding: 7px 7px;
+    margin-left: 0px;
+}
+
+.right-content div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #555;
+  padding: 8px; 
+  box-sizing: border-box;
+}
+.right-content a {
+  color: #555;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.right-content a::after {
+   content: '';
+    width: 0%;
+    height: 2px;
+    background: #0e634d;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.right-content a:hover::after {
+    width: 100%;
+}
+
+table td {
+  padding: 5px;
+  border: 1px solid black;
+}
+
+.thead {
+  font-weight: 600;
+}
+
+    </style>
+
+</head>
+
+<body>
+    <section class="sentimentanalysis">
+        <nav>
+          <a href="{{url_for('home')}}"><img src="/static/styles/images/logo.png"></a>
+            <h4>SENTIMENT PREDICTOR</h2>
+            <div class="nav-links">
+              <ul>
+                <li><a href="{{url_for('home')}}">HOME</a></li>
+                <li><a href="{{url_for('sentimentpredictor')}}">SENTIMENT PREDICTOR</a></li>
+                <li><a href="{{url_for('sentimentanalysis')}}">SENTIMENT ANALYSIS ON GOVERNMENT</a></li>
+                <li><a href="#ourteam">OUR TEAM</a></li>
+              </ul>
+            </div>
+        </nav>   
+          
+          <h1>Sentiment Analysis on Government 2018-2023</h1>
+       
+    </section>
+
+    <!----content---->
+    <section class="content">
+
+      <div class="row">
+      <div class="left-content">
+        <h2>2018 General Election</h2>
+        <p>In the internet age, social media is connecting us all at the tip of our fingers. People are connected through different social media. News can now circulate the world within seconds. The social network, Twitter, allows people to tweet their thoughts on any particular event or a specific political body, which provides us with a diverse range of political insights. This network tells us what people around us are thinking about the Government and its campaigns. Sometimes the Government expects a positive reaction to a campaign, but people either remain indifferent or react negatively. This project focused on the NLP of a multilingual dataset (Urdu, English and Roman Urdu). The proposed idea was to collect the data on Government from Twitter and apply sentiment analysis. Five different classification models are applied to determine sentiments, and eventually, the use of ensemble technique to move forward with the acquired results is explored.</p>
+        <p>General elections were held in Pakistan on Wednesday, 25 July 2018 to elect the members of National Assembly and the four provincial assemblies.</p>
+        <h2>Electoral performance in the National Assembly</h2>
+        <p>In the National Assembly elections, the Pakistan Tehreek-e-Insaf (PTI) received the most votes and won the most seats. At the provincial level, the PTI remained the largest party in Khyber Pakhtunkhwa (KP); the Pakistan Peoples Party (PPP) retained its dominance in Sindh and the newly formed Balochistan Awami Party (BAP) emerged as the largest party in Balochistan. In Punjab, the result was a hung parliament with the Pakistan Muslim League (N) (PML-N) winning the most seats. However, after several independents MPAs joined the PTI, the latter became the largest party and was able to form a government.</p>
+        <br>
+        <table>
+          <tr class="thead"> 
+            <td>Party</td>
+            <td>Leader</td>
+            <td>Votes #</td>
+            <td>Vote%</td>
+            <td>Seats</td>
+            <td>Position</td>
+            <td>Result</td>
+          </tr>
+          <tr>
+            <td>PTI</td>
+            <td>Imran Khan</td>
+            <td>16,903,702</td>
+            <td>31.92%</td>
+            <td>149/342</td>
+            <td>1st</td>
+            <td>Government</td>
+          </tr>
+          <tr>
+            <td>PMLN</td>
+            <td>Shehbaz Sharif</td>
+            <td>12,934,589</td>
+            <td>24.35%</td>
+            <td>82/342</td>
+            <td>2nd</td>
+            <td>Opposition</td>
+          </tr>
+          <tr>
+            <td>PPP</td>
+            <td>Bilawal Bhutto Zardari</td>
+            <td>6,924,356</td>
+            <td>13.03%</td>
+            <td>55/342</td>
+            <td>3rd</td>
+            <td>Opposition</td>
+          </tr>
+        </table>
+
+        <br>
+        <a id="pti">
+        <img src="/static/styles/images/pti.jpg">
+        <h2>Pakistan Tehreek-e-Insaf</h2>
+        </a>
+        <p>
+          Pakistan Tehreek-e-Insaf (PTI; Urdu: پاکستان تحريکِ انصاف‎ or پی ٹی‌‌آئی, "Pakistan Movement for Justice") is a centrist and populist Pakistani political party and the current ruling party of Pakistan. PTI is one of three major political parties of Pakistan along with PML-N and PPP, and the largest party in terms of representation in National Assembly as of the 2018 Pakistani general election. With over 10 million members in Pakistan and abroad, it claims to be Pakistan's largest party by primary membership and one of the largest political parties in world.
+        </p>
+        <img src="/static/styles/images/visualization_PTI.png">
+        <br>
+        <br>
+        <br>
+        <a id="pmln">
+        <img src="/static/styles/images/pmln.jpg">
+        <h2>Pakistan Muslim League (N)</h2>
+        </a>
+        <p>
+          The Pakistani Muslim League (Nawaz) (Urdu: پاکستان مسلم لیگ (ن)‎, romanized: Pākistān Muslam Lig (Nūn) abbr. PML(N) or PML-N) is a centre-right, conservative political party in Pakistan. Alongside the Pakistan Tehreek-e-Insaf (PTI) and Pakistan Peoples Party (PPP), it is one of the three major political parties of the country. The party was founded by former Prime Minister Nawaz Sharif after the dissolution of Islamic Democratic Alliance in 1993. The party's platform is generally conservative, which involves supporting free markets, deregulation, lower taxes and private ownership. Although the party historically supported social conservatism, in recent years, the party’s political ideology and platform has become more liberal on social and cultural issues.
+        </p>
+        <img src="/static/styles/images/visualization_PMLN.png">
+        <br>
+        <br>
+        <br>
+        <a id="ppp">
+        <img src="/static/styles/images/ppp.jpg">
+        <h2>Pakistan Peoples Party</h2>
+        </a>
+        <p>
+          The Pakistan Peoples Party (Urdu: پاکستان پیپلز پارٹی‎, PPP) is a centre-left, social-democratic and secular political party in Pakistan. It is currently the third largest party in the National Assembly. The party was founded in 1967, when a number of prominent left-wing leaders of the country joined hands against the military dictatorship of President Ayub Khan, under the leadership of Zulfikar Ali Bhutto. Affiliated with the Socialist International, the PPP's platform is socialist, and its stated priorities include transforming Pakistan into a social democratic state, promoting secular and egalitarian values, establishing social justice and a strong national defence. The party, alongside Pakistan Muslim League (N) and Pakistan Tehreek-e-Insaf is one of the 3 largest political parties of Pakistan.
+        </p>
+        <img src="/static/styles/images/visualization_PPP.png">
+        <br>
+        <br>
+        <br>
+        <h2>Comparitive Analysis</h2>
+        <p>For comparative analysis of sentiments of people on these parties, see the figure. We can see that number of tweets collected on each party vary. This was not done deliberately. But these stats do speak about the popularity of each party. Looking at the blue bars, we can see that people had more positive sentiments for each party. When it comes to PMLN and PPP the negative sentiments are almost half of the positive sentiments. Whereas PTI has a very small difference between sentiments. We can say that it is almost as much hated as much as it is supported.</p>
+        <img src="/static/styles/images/comparative_analysis_parties.jpg">
+      </div>
+
+      <div class="right-content">
+        <h3>Political Parties</h3>
+        <div>
+          <a href="#pti">
+          <span>PTI</span>
+        </a>
+        </div>
+        <div>
+          <a href="#pmln">
+          <span>PMLN</span>
+        </a>
+        </div>
+          <div>
+            <a href="#ppp">
+          <span>PPP</span>
+        </a>
+        </div>
+      </div>
+    </div>
+
+    </section>
+
+
+    <!---footer--->
+    <section class="footer">
+      <a id="ourteam">
+      <h4>OUR TEAM</h4> 
+      <div class="row">
+        <div class="footer-col">
+          <p style="color:black;"><i class="fa fa-user"></i> Saman Azhar</p>
+          <p style="color:black"><i class="fa fa-user"></i> Hamnna Ayemen</p>
+          <p style="color:black"><i class="fa fa-user"></i> Areesha Ramzan</p>
+        </div>
+
+          <div class="footer-col">
+            <p style="color:black"><i class="fa fa-envelope"></i> saman.azhar36@gmail.com</p>
+            <p style="color:black"><i class="fa fa-envelope"></i> hamnna035@gmail.com</p>
+            <p style="color:black"><i class="fa fa-envelope"></i> areesharamzan02@gmail.com</p>
+          </div>
+      </div>
+    </a>
+    </section>
+</body>
+</html>
